@@ -1,15 +1,19 @@
 def main():
     path = "books/frankenstein.txt"
     text = read_book(path)
+    
     count_characters = counting(count_chars(text))
     count_alpha = counting(count_chars_alpha(text))
     words = count_words(text)
     report = reporting(count_chars_alpha(text))
     report.sort(reverse=True, key=sorting)
+
     print(f"\n--- Beginning of report about the publication located at {path} ---\n")
     print(f"There are {count_characters} characters, out of which {count_alpha} are alphabetical. There are {words} words in the text.\n\n")
+
     for i in report:
         print(f"The character {i["key"]} occurs {i["value"]} times\n")
+
     print("--- END REPORT---")
 
 def read_book(path_to_file):
